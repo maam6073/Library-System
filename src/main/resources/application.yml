@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url:  jdbc:h2:~/test
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+    initialization-mode: always
+    schema: classpath:h2/schema.sql
+    data: classpath:h2/data.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # jpa
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    # auto create schema
+    hibernate:
+      ddl-auto: update
+    # show sql query
+    show-sql: true
+    # SQL pretty print
+    properties:
+      hibernate:
+        format_sql: true
+    # colorful console
+    output:
+      ansi:
+        enabled: always
+
+## logging above debugs
+logging:
+  level:
+    org:
+      springframework:
+        orm:
+          jpa: WARN
